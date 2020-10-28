@@ -61,6 +61,7 @@ async function deptQs(){
         }
     ]);
     console.log("You've named the new department " + deptQuestions.newDeptName);
+    return;
 };
 
 async function roleQs(){
@@ -68,10 +69,31 @@ async function roleQs(){
         {
             type: "input",
             message: "What is the name of this new role?",
-            name: "newRoleName"
+            name: "newRoleTitle"
+        },
+        {
+            type: "number",
+            message: "What is the salary for this role? (enter a number)",
+            name: "newRoleSalary"
         }
     ]);
-    console.log("You've named the new role " + roleQuestions.newRoleName);
+    console.log("The title of the new role is " + roleQuestions.newRoleTitle);
+}
+
+async function employeeQs(){
+    let employeeQuestions = await inquirer.prompt([
+        {
+            type: "input",
+            message: "What is the new employee's first name?",
+            name: "newEmployeeFirstName"
+        },
+        {
+            type: "input",
+            message: "What is the new employee's last name?",
+            name: "newEmployeeLastName"
+        }
+    ]);
+    console.log("The employee's name is " + employeeQuestions.newEmployeeFirstName + " " + employeeQuestions.newEmployeeLastName);
 }
 
 promptUser();
